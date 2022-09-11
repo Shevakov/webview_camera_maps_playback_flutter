@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'image/image_list.dart';
 import 'my_home_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,10 +11,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Camera',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      home: BlocProvider<ImageList>(
+        create: (_) => ImageList(),
+        child: const MyHomePage(title: 'Flutter Demo Home Page'),
       ),
-      home: const MyHomePage(title: 'Flutter Camera Home Page'),
     );
   }
 }
